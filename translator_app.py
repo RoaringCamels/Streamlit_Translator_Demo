@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Load API Key securely from Streamlit secrets
-openai.api_key = st.secrets["OPENAI_API_KEY"]  # Store API key in .streamlit/secrets.toml
+openai.api_key = st.secrets["openai"]["api_key"]
 
 # Streamlit App Title
 st.title("Translator 9000 🌍")
