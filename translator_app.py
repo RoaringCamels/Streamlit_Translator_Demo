@@ -1,8 +1,13 @@
 import streamlit as st
 import openai
+import os
 
-# Load API Key securely from Streamlit secrets
-openai.api_key = st.secrets["openai"]["api_key"]
+# Ensure you are able to access the API key correctly from Streamlit secrets
+try:
+    openai.api_key = st.secrets["openai"]["api_key"]
+except KeyError:
+    st.error("OpenAI API Key not found in Streamlit secrets. Please set the key in the secrets.toml file.")
+    st.stop()  # Stops the app if the API key isn't available
 
 # Streamlit App Title
 st.title("Translator 9000 🌍")
